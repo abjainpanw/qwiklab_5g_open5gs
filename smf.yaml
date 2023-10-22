@@ -603,7 +603,7 @@ smf:
       - addr: 127.0.0.4
         port: 7777
     pfcp:
-      - addr: 172.16.1.10
+      - addr: 172.20.1.10
       - addr: ::1
     gtpc:
       - addr: 127.0.0.4
@@ -809,7 +809,7 @@ scp:
 #
 upf:
     pfcp:
-      - addr: 172.16.2.10
+      - addr: 172.20.2.10
 
 #
 #  o Disable use of IPv4 addresses (only IPv6)
