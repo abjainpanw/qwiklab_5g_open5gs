@@ -196,9 +196,9 @@ logger:
 #
 upf:
     pfcp:
-      - addr: 172.16.2.10
+      - addr: 172.20.2.10
     gtpu:
-      - addr: 172.16.2.10
+      - addr: 172.20.2.10
     subnet:
       - addr: 10.45.0.1/16
       - addr: 2001:db8:cafe::1/48
