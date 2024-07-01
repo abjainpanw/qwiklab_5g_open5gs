@@ -23,7 +23,7 @@ import pyrad.packet
 
 imsilist = {}
 seidlist = {}
-radius_server = "172.16.10.10"
+radius_server = "172.20.4.1"
 shared_secret = "open5gslab"
 radius_port = 1813  
 
@@ -84,7 +84,7 @@ def packet_callback(packet):
         vsa_imsi = RadiusAttr_Vendor_Specific(type=26, vendor_id=10415, vendor_type=1, value=imsi)
         vsa_imei = RadiusAttr_Vendor_Specific(type=26, vendor_id=10415, vendor_type=20, value=imsilist[imsi]['imei'])
         framed_ip = RadiusAttr_Framed_IP_Address(type=8, len=6, value=imsilist[imsi]['UEIP'])
-        nas_ip = RadiusAttr_NAS_IP_Address(type=8, len=6, value="172.16.9.10")
+        nas_ip = RadiusAttr_NAS_IP_Address(type=8, len=6, value="172.20.1.10")
         msg_type = RadiusAttr_Acct_Status_Type(type=40, len=6, value=1)
         radius_packet = Radius(code=4, id=1)
         radius_packet.attributes.append(nas_ip)
@@ -105,7 +105,7 @@ def packet_callback(packet):
         vsa_imsi = RadiusAttr_Vendor_Specific(type=26, vendor_id=10415, vendor_type=1, value=imsi)
         vsa_imei = RadiusAttr_Vendor_Specific(type=26, vendor_id=10415, vendor_type=20, value=imsilist[imsi]['imei'])
         framed_ip = RadiusAttr_Framed_IP_Address(type=8, len=6, value=imsilist[imsi]['UEIP'])
-        nas_ip = RadiusAttr_NAS_IP_Address(type=8, len=6, value="172.16.9.10")
+        nas_ip = RadiusAttr_NAS_IP_Address(type=8, len=6, value="172.20.1.10")
         msg_type = RadiusAttr_Acct_Status_Type(type=40, len=6, value=2)
         radius_packet = Radius(code=4, id=1)
         radius_packet.attributes.append(nas_ip)
@@ -133,5 +133,5 @@ def start_sniffing(interface):
     sniff(iface=interface, prn=packet_callback, store=0)
 
 if __name__ == "__main__":
-    network_interface = 'ens224'  # Replace with your network interface
+    network_interface = 'ens4'  # Replace with your network interface
     start_sniffing(network_interface)
